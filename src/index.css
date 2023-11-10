@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#main {
+  height: 80vh;
+  background-color: red;
+  grid-template-columns: 20% 40% 40%;
+}
+
+#posts {
+  margin: 10px;
+  height: 300px;
+  width: 400px;
+  background-color: black;
+}
