@@ -1,10 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = ({ selectedTab, setSelectedTab }) => {
   return (
-    <div className="bg-black text-white py-10 px-5 flex flex-col gap-5">
-      <div id="logo">
+    <div id="sidebar" className="py-10 px-5 flex flex-col gap-1">
+      <div id="logo" className="pb-9">
         <svg
           aria-label="Instagram"
           class="x1lliihq x1n2onr6 x5n08af"
@@ -23,11 +23,39 @@ const Sidebar = () => {
           ></path>
         </svg>
       </div>
-      <div id="create-post" className="flex items-center gap-4 cursor-pointer">
+
+      <div
+        onClick={() => setSelectedTab("Home")}
+        id="home"
+        className="py-2.5 px-2 active flex items-center gap-4 cursor-pointer"
+      >
+        <svg
+          aria-label="Home"
+          className={`${selectedTab === "Home" && "fill"}`}
+          height="24"
+          role="img"
+          viewBox="0 0 24 24"
+          width="24"
+        >
+          <title>Home</title>
+          <path
+            d="M9.005 16.545a2.997 2.997 0 0 1 2.997-2.997A2.997 2.997 0 0 1 15 16.545V22h7V11.543L12 2 2 11.543V22h7.005Z"
+            stroke="currentColor"
+            stroke-linejoin="round"
+            stroke-width="2"
+          ></path>
+        </svg>
+        <span className="font-medium text-lg tracking-wide">Home</span>
+      </div>
+
+      <div
+        onClick={() => setSelectedTab("Create")}
+        id="create-post"
+        className="py-2.5 px-2 active flex items-center gap-4 cursor-pointer"
+      >
         <svg
           aria-label="New post"
-          class="x1lliihq x1n2onr6 x5n08af"
-          fill="currentColor"
+          className={`${selectedTab === "Create" && "fill"}`}
           height="24"
           role="img"
           viewBox="0 0 24 24"
@@ -36,16 +64,15 @@ const Sidebar = () => {
           <title>New post</title>
           <path
             d="M2 12v3.45c0 2.849.698 4.005 1.606 4.944.94.909 2.098 1.608 4.946 1.608h6.896c2.848 0 4.006-.7 4.946-1.608C21.302 19.455 22 18.3 22 15.45V8.552c0-2.849-.698-4.006-1.606-4.945C19.454 2.7 18.296 2 15.448 2H8.552c-2.848 0-4.006.699-4.946 1.607C2.698 4.547 2 5.703 2 8.552Z"
-            fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
+            strokeLinecap="round"
             stroke-linejoin="round"
             stroke-width="2"
           ></path>
           <line
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
+            strokeLinecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             x1="6.545"
@@ -56,7 +83,7 @@ const Sidebar = () => {
           <line
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
+            strokeLinecap="round"
             stroke-linejoin="round"
             stroke-width="2"
             x1="12.003"
@@ -65,7 +92,7 @@ const Sidebar = () => {
             y2="17.455"
           ></line>
         </svg>
-        <span className="font-medium text-xl tracking-wide">Create</span>
+        <span className="font-medium text-lg tracking-wide">Create</span>
       </div>
     </div>
   );

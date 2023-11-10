@@ -7,16 +7,37 @@
   margin: 0;
   box-sizing: border-box;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 
+body {
+  background-color: black;
+  color: #fff;
+}
 #main {
-  height: 80vh;
-  background-color: red;
-  grid-template-columns: 20% 40% 40%;
+  height: 100vh;
+  grid-template-columns: 20% 50% 30%;
+}
+
+#sidebar {
+  border-right: 1px solid #282727;
 }
 
 #posts {
   margin: 10px;
-  height: 300px;
+  max-height: 300px;
   width: 400px;
-  background-color: black;
+}
+#posts video {
+  border: 1px solid #787878;
+  border-radius: 10px;
+}
+.active:hover {
+  background-color: rgba(60, 59, 59, 0.9);
+  border-radius: 10px;
+}
+
+.fill {
+  fill: #fff;
 }

@@ -1,20 +1,19 @@
-import React from "react";
-import Status from "./Status";
-
+import React, { useContext, useState } from "react";
+import PostList from "./PostList";
+import { PostList as postData } from "../Store/post-list-store";
 const Home = () => {
+  const { postList } = useContext(postData);
+  console.log(postList);
   return (
     <div className="p-2 overflow-auto">
-      <Status />
-      <div id="posts">
-        <div id="profile-det">
-          <img
-            className="w-20 h-20 rounded-full object-cover"
-            src="https://image.lexica.art/md2/01b03176-4821-4780-94ba-0cf1c56cb322"
-            alt=""
-          />
-        </div>
+      <div
+        id="media-posts"
+        className="flex gap-16 flex-col w-full items-center justify-center"
+      >
+        {postList.map((x) => (
+          <PostList key={x.id} data={x} />
+        ))}
       </div>
-      <div id="posts"></div>
     </div>
   );
 };

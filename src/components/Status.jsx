@@ -25,7 +25,7 @@ const Status = () => {
       {status.map((x) => {
         return (
           <div>
-            <img className="rounded-full h-24 w-24 object-cover" src={x.img} />
+            <img className="rounded-full h-20 w-20 object-cover" src={x.img} />
           </div>
         );
       })}
