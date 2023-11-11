@@ -1,11 +1,7 @@
 import React from "react";
 
 const FriendList = () => {
-  return (
-    <div>
-      <h1>Fried</h1>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default FriendList;

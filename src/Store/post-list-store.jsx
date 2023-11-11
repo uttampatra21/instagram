@@ -7,8 +7,14 @@ export const PostList = createContext({
 });
 
 const postListReducer = (currentPost, action) => {
-  return currentPost;
+  let newList = currentPost;
+  if (action.type === "DELETE_POST") {
+    newList = currentPost.filter((x) => x.id !== action.payload.id);
+  }
+  return newList;
 };
+
+// STEP 1:
 
 const PostListProvider = ({ children }) => {
   const [postList, dispatachPostList] = useReducer(
@@ -18,7 +24,16 @@ const PostListProvider = ({ children }) => {
 
   const addPost = () => {};
 
-  const deletePost = () => {};
+  const deletePost = (id) => {
+    dispatachPostList({
+      type: "DELETE_POST",
+      payload: {
+        id,
+      },
+    });
+  };
+
+  //   STEP 2
 
   return (
     <PostList.Provider value={{ postList, addPost, deletePost }}>
@@ -44,6 +59,22 @@ const DEFAULT_POST_LIST = [
     name: "uttam",
     userId: "user_19",
     reaction: "99",
+  },
+  {
+    id: "1",
+    video: "https://cdn.cuberto.com/cb/projects/qvino/cover.mp4",
+    userImage: "https://avatars.githubusercontent.com/u/108145016?v=4",
+    name: "Diya",
+    userId: "user_09",
+    reaction: "123",
+  },
+  {
+    id: "1",
+    video: "https://cdn.cuberto.com/cb/projects/qvino/cover.mp4",
+    userImage: "https://avatars.githubusercontent.com/u/108145016?v=4",
+    name: "Diya",
+    userId: "user_09",
+    reaction: "123",
   },
 ];
 

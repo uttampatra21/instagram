@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import { PostList as postData } from "../Store/post-list-store";
 
 const PostList = ({ data }) => {
-  console.log(data.name);
+  const { deletePost } = useContext(postData);
+
   return (
     <div>
       <div id="posts" className="flex flex-col gap-4">
@@ -10,24 +12,19 @@ const PostList = ({ data }) => {
             className="w-14 h-14 rounded-full object-cover"
             src={data.userImage}
           />
-          <div id="sm-det" className="flex flex-col relative">
+          <div
+            id="sm-det"
+            className="flex w-full justify-center-center flex-col relative"
+          >
             <strong>{data.name}</strong>
             <small>{data.userId}</small>
-            <div className="dot absolute right-0">
-              <svg
-                aria-label="More options"
-                class="x1lliihq x1n2onr6 x5n08af"
-                fill="#fff"
-                height="24"
-                role="img"
-                viewBox="0 0 24 24"
-                width="24"
-              >
-                <title>More options</title>
-                <circle cx="12" cy="12" r="1.5"></circle>
-                <circle cx="6" cy="12" r="1.5"></circle>
-                <circle cx="18" cy="12" r="1.5"></circle>
-              </svg>
+            <div className="absolute right-0">
+              <i
+                onClick={() => {
+                  deletePost(data.id);
+                }}
+                className="text-3xl bx bx-dots-horizontal-rounded"
+              ></i>
             </div>
           </div>
         </div>

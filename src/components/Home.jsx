@@ -3,7 +3,6 @@ import PostList from "./PostList";
 import { PostList as postData } from "../Store/post-list-store";
 const Home = () => {
   const { postList } = useContext(postData);
-  console.log(postList);
   return (
     <div className="p-2 overflow-auto">
       <div
